@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+<h1>All your carpools {{=auth.user.username}}</h1>
+
+<ul>
+    
+
+		{{if auth.user:}}
+    <li>{{=A('Create carpool', _href=URL('create'))}}</li>
+        <br>
+    <li>{{=A('Edit/Delete carpools', _href=URL('edit'))}}</li>
+
+		{{pass}}
+
+</ul>
+<br />
+
+<Table>
+	<TR>
+		<TD><h3></h3></TD>
+		<TD><h3>Carpools</h3></TD>
+	</TR>
+	{{for p in pages:}}
+	<TR>
+		<TD>{{=A(p.location_ +" to "+ p.destination, _href=URL("show",args=p.id))}}</TD>
+	</TR>
+{{pass}}
+</Table>

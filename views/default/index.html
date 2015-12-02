@@ -1,0 +1,66 @@
+{{extend 'layout.html'}}
+<h2>
+    {{=A('Search', _href=URL('search'))}}
+</h2>
+		{{if auth.user:}}
+			<h2>
+            {{=A('Create carpool', _href=URL('create'))}}
+            <br>
+            {{=A('Your carpools', _href=URL('userPage', args=auth.user.id))}}
+            </h2>
+		{{pass}}
+
+<br />
+
+
+
+
+
+<div>
+    <h1>Select which day of the week you need a ride</h1>
+    <br>
+
+
+    
+
+
+
+<div class="zero" id="a" onclick="jQuery('.one').slideToggle()">   
+{{=formA}}
+    {{=target_div}}
+
+</div>
+
+<div class="one hidden" id="b" onclick="jQuery('.two').slideToggle()">
+    </div>
+{{=formB}} 
+    {{=target_div2}}
+
+
+<div class="two hidden" id="c">   
+    </div>
+{{=formC}} 
+    {{=target_div3}}
+
+    
+
+{{=formD}} 
+    {{=target_div4}}
+
+{{=formE}} 
+    {{=target_div5}}
+
+{{=formF}} 
+    {{=target_div6}}
+
+{{=formG}} 
+    {{=target_div7}}
+
+
+
+ 
+    
+
+
+[ {{=A('Refresh Buttons', _href=URL('index'))}}]<br />
+</div>

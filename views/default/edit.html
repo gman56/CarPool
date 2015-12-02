@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<h1>Your Carpools</h1>
+
+<h3>
+Click Carpool to Update/Delete
+</h3>
+<ul>
+{{for c in posts:}}
+        {{if c.created_by == auth.user_id:}}
+        {{=LI(A(c.location_ +" to "+ c.destination, _href=URL("edit", args=c.id)))}}
+    {{pass}}
+    {{pass}}
+
+
+{{=form}}

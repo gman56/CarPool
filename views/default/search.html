@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+<h1>Search carpools</h1>
+
+
+<div class="zero" id="a" onclick="jQuery('.one').slideToggle()">   
+    {{=formFake}}
+</div>
+    
+
+<div class="one hidden" id="a">       
+<h1>Carpool List</h1>
+<ul>
+{{for c in car:}}
+{{=LI(A(c.location_ + " to " + c.destination + ", driver: " + c.name, _href=URL("show", args=c.id)))}}
+<br> 
+{{pass}}
+</ul>
+    
+    
+</div>
+    
+<br>
+<br>
+
+
+<h3>
+     Search by location:
+</h3>    
+{{=formA}}<br />{{=target_divA}} <br>
+
+<h3>
+    Search by destination:
+</h3>
+{{=formB}}<br />{{=target_divB}} <br>
+
+<h3>
+    
+    Search by driver name:
+</h3>
+{{=formC}}<br />{{=target_divC}} <br>

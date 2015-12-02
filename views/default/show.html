@@ -1,0 +1,77 @@
+{{extend 'layout.html'}}
+<h1>{{=card.location_}}  going to  {{=card.destination}}</h1>
+<span style="text-decoration: underline;">
+<h3>
+     Day(s) of the week:
+</h3>
+    </span>
+{{if card.monday == True:}}
+    <h4>
+        Monday
+    </h4>
+{{pass}}
+{{if card.tuesday == True:}}
+    <h4>
+        Tuesday
+    </h4>
+{{pass}}
+{{if card.wednesday == True:}}
+    <h4>
+        Wednesday
+    </h4>
+{{pass}}
+{{if card.thursday == True:}}
+    <h4>
+        Thursday
+    </h4>
+{{pass}}
+{{if card.friday == True:}}
+    <h4>
+        Friday
+    </h4>
+{{pass}}
+{{if card.saturday == True:}}
+    <h4>
+        Saturday
+    </h4>
+{{pass}}
+{{if card.sunday == True:}}
+    <h4>
+        Sunday
+    </h4>
+{{pass}}
+
+<h3>
+   Driver Name: {{=card.name}}
+    <br>
+{{if auth.user:}}    
+   Driver Phone: {{=card.phone_number}} <br>
+
+{{pass}}  
+   Date Posted: {{=card.created_on}}
+</h3>
+
+<div style="text-align:center">
+<p>{{=card.comments}}</p>
+</div>
+
+
+
+
+
+
+{{if auth.user:}}
+    <h3>People whom are coming:</h3>
+    {{for c in comments:}}
+    <p><b>{{=db.auth_user[c.created_by].username}}</b> on <i>{{=c.created_on}} </i>
+         <br /> {{=c.body}}</p>
+    {{pass}}
+    <br>
+    <h4>
+        Press to say you are coming 
+    </h4>
+    <p align='left'>
+    {{=form}}
+    This will send you an email reminder automatically
+    </p>
+{{pass}}
